@@ -9,18 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="index.html" class="back-to-home">← Back to Home</a>
+    
     <div id="matrix-bg"></div>
     <div id="glitch-overlay"></div>
 
     <div class="profile-layout container">
-        <!-- Sidebar -->
         <aside class="profile-sidebar">
             <div class="user-card">
-                <div class="avatar-container">
+                <label for="avatar-upload" class="avatar-container" title="Click to upload a new avatar">
+                    <input type="file" id="avatar-upload" accept="image/*" style="display:none;">
                     <div class="avatar-glow"></div>
                     <div class="avatar-image" id="user-avatar"></div>
-                    <button class="edit-avatar-btn" id="edit-avatar-btn">EDIT</button>
-                </div>
+                    <div class="edit-avatar-btn">EDIT</div>
+                </label>
                 <h2 class="username" id="username">Quantum Racer</h2>
                 <div class="wallet-address" id="wallet-address">
                     <span class="wallet-icon"></span>
@@ -28,22 +30,20 @@
                 </div>
                 <button class="disconnect-btn" id="disconnect-wallet">Disconnect</button>
             </div>
-
             <div class="social-links-card">
                 <h3>Social Sync</h3>
                 <div class="social-link-item">
                     <span class="social-icon">🐦</span>
-                    <input type="text" placeholder="@twitter_handle" id="twitter-handle">
+                    <input type="text" placeholder="twitter.com/handle" id="twitter-handle">
                 </div>
                 <div class="social-link-item">
                     <span class="social-icon">💻</span>
-                    <input type="text" placeholder="github_username" id="github-handle">
+                    <input type="text" placeholder="github.com/username" id="github-handle">
                 </div>
-                <button class="save-social-btn">Sync Accounts</button>
+                <button id="save-social-btn" class="save-social-btn">Save Links</button>
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="profile-main">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -67,14 +67,10 @@
                     <div class="stat-icon">🏁</div>
                 </div>
             </div>
-
             <div class="content-section">
                 <h3>Achievements & NFT Rewards</h3>
-                <div class="achievements-grid" id="achievements-grid">
-                    <!-- Achievements loaded by JS -->
-                </div>
+                <div class="achievements-grid" id="achievements-grid"></div>
             </div>
-
             <div class="content-section">
                 <h3>Race History</h3>
                 <div class="history-table">
@@ -84,15 +80,11 @@
                         <span>Time</span>
                         <span class="zk-proof-header">ZK Proof</span>
                     </div>
-                    <div id="race-history-content">
-                        <!-- History loaded by JS -->
-                    </div>
+                    <div id="race-history-content"></div>
                 </div>
             </div>
         </main>
     </div>
-
-    <!-- Modals and other elements would go here -->
 
     <script src="js/profile.js"></script>
     <script src="js/audio.js"></script>
