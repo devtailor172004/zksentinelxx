@@ -1,21 +1,16 @@
-// js/profile.js
-
 class ProfileManager {
     constructor() {
         this.init();
         this.loadProfileData();
         this.setupEventListeners();
-        this.createMatrixEffect();
     }
 
     init() {
-        this.userData = {}; // Will be populated from localStorage
+        this.userData = {};
     }
 
     loadProfileData() {
         const savedData = JSON.parse(localStorage.getItem('zkSentinelUserData')) || {};
-
-        // Use saved data or provide mock data for a richer first-time experience
         this.userData = {
             username: savedData.username || 'Quantum Racer',
             walletAddress: savedData.walletAddress || '0x' + Math.random().toString(16).substr(2, 8) + '...' + Math.random().toString(16).substr(2, 8),
@@ -27,7 +22,6 @@ class ProfileManager {
             achievements: savedData.achievements || this.getMockAchievements(),
             raceHistory: savedData.raceHistory || this.getMockRaceHistory()
         };
-
         this.updateUI();
     }
 
@@ -54,38 +48,35 @@ class ProfileManager {
 
     updateUI() {
         document.getElementById('username').textContent = this.userData.username;
-        const walletText = document.getElementById('wallet-address-text');
-        if (walletText) {
-            const addr = this.userData.walletAddress;
-            walletText.textContent = `${addr.substr(0, 6)}...${addr.substr(-4)}`;
-        }
-
-        // Animate stats
+        const addr = this.userData.walletAddress;
+        document.getElementById('wallet-address-text').textContent = `${addr.substr(0, 6)}...${addr.substr(-4)}`;
         this.animateValue(document.getElementById('zk-coins'), this.userData.zkCoins, 1500);
         this.animateValue(document.getElementById('zk-proofs'), this.userData.zkProofs, 1500);
         this.animateValue(document.getElementById('races-completed'), this.userData.racesCompleted, 1500);
         document.getElementById('best-lap').textContent = this.userData.bestLap;
-
         document.getElementById('twitter-handle').value = this.userData.socialLinks.twitter || '';
         document.getElementById('github-handle').value = this.userData.socialLinks.github || '';
-
         this.renderAchievements();
         this.renderRaceHistory();
     }
 
     animateValue(element, target, duration) {
-        if (!element) return;
+        if (!element || !Number.isInteger(target)) return;
+        element.textContent = '0';
         let start = 0;
-        const stepTime = Math.abs(Math.floor(duration / target));
-        
+        const stepTime = duration / target;
+        if (target === 0) {
+            element.textContent = 0;
+            return;
+        }
         const timer = setInterval(() => {
             start += 1;
             element.textContent = start.toLocaleString();
-            if (start === target) {
+            if (start >= target) {
+                element.textContent = target.toLocaleString();
                 clearInterval(timer);
             }
         }, stepTime);
-        if (target === 0) element.textContent = 0;
     }
 
     renderAchievements() {
@@ -100,44 +91,58 @@ class ProfileManager {
 
     renderRaceHistory() {
         const content = document.getElementById('race-history-content');
+        if (this.userData.raceHistory.length === 0) {
+            content.innerHTML = '<div class="history-row" style="grid-template-columns: 1fr; text-align: center; color: var(--text-muted);">No races completed yet.</div>';
+            return;
+        }
         content.innerHTML = this.userData.raceHistory.map(race => `
             <div class="history-row">
                 <span>${race.track}</span>
                 <span>#${race.position}</span>
                 <span>${race.time}</span>
-                <span><a href="#" class="proof-link">${race.proof.substr(0, 8)}...</a></span>
+                <span><a href="#" class="proof-link" title="${race.proof}">${race.proof.substr(0, 8)}...</a></span>
             </div>
         `).join('');
-        if (this.userData.raceHistory.length === 0) {
-            content.innerHTML = '<div class="history-row" style="grid-template-columns: 1fr; text-align: center; color: var(--text-muted);">No races completed yet.</div>';
-        }
     }
-
+    
     setupEventListeners() {
-        document.getElementById('disconnect-wallet').addEventListener('click', () => {
+        document.getElementById('disconnect-wallet')?.addEventListener('click', () => {
             if (confirm('Are you sure you want to disconnect your wallet? This will clear your local data.')) {
                 localStorage.removeItem('zkSentinelUserData');
                 window.location.href = 'index.html';
             }
         });
-        
-        // Add listeners for social links, avatar editing etc. later
+        document.getElementById('avatar-upload')?.addEventListener('change', (e) => this.handleAvatarUpload(e));
+        document.getElementById('save-social-btn')?.addEventListener('click', () => this.saveSocialLinks());
     }
 
-    createMatrixEffect() {
-        // Simplified matrix effect using CSS to avoid performance issues on profile page
-        const bg = document.getElementById('matrix-bg');
-        if (!bg) return;
-        bg.style.background = 'var(--bg-darker)';
-        // A full canvas-based matrix rain can be performance intensive. 
-        // For the profile page, we rely on the subtle gradients and glitch overlay.
+    handleAvatarUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const imageUrl = e.target.result;
+            document.getElementById('user-avatar').style.backgroundImage = `url(${imageUrl})`;
+            this.showNotification('Avatar updated! (Local session only)', 'info');
+        };
+        reader.readAsDataURL(file);
+    }
+
+    saveSocialLinks() {
+        this.userData.socialLinks.twitter = document.getElementById('twitter-handle').value;
+        this.userData.socialLinks.github = document.getElementById('github-handle').value;
+        this.showNotification('Social links saved! (Local session only)', 'info');
+    }
+
+    showNotification(message, type = 'success') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 4000);
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     new ProfileManager();
-    if (window.AudioEngine) {
-        const audioEngine = new AudioEngine();
-        audioEngine.playBackgroundMusic('profile');
-    }
 });
