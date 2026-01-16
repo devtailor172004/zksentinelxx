@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZKSentinel - Quantum Profile</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="matrix-bg"></div>
+    <div id="glitch-overlay"></div>
+
+    <div class="profile-layout container">
+        <!-- Sidebar -->
+        <aside class="profile-sidebar">
+            <div class="user-card">
+                <div class="avatar-container">
+                    <div class="avatar-glow"></div>
+                    <div class="avatar-image" id="user-avatar"></div>
+                    <button class="edit-avatar-btn" id="edit-avatar-btn">EDIT</button>
+                </div>
+                <h2 class="username" id="username">Quantum Racer</h2>
+                <div class="wallet-address" id="wallet-address">
+                    <span class="wallet-icon"></span>
+                    <span id="wallet-address-text">0x000...0000</span>
+                </div>
+                <button class="disconnect-btn" id="disconnect-wallet">Disconnect</button>
+            </div>
+
+            <div class="social-links-card">
+                <h3>Social Sync</h3>
+                <div class="social-link-item">
+                    <span class="social-icon">🐦</span>
+                    <input type="text" placeholder="@twitter_handle" id="twitter-handle">
+                </div>
+                <div class="social-link-item">
+                    <span class="social-icon">💻</span>
+                    <input type="text" placeholder="github_username" id="github-handle">
+                </div>
+                <button class="save-social-btn">Sync Accounts</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="profile-main">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="zk-coins">0</div>
+                    <div class="stat-label">ZK Coins Earned</div>
+                    <div class="stat-icon">💎</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="zk-proofs">0</div>
+                    <div class="stat-label">ZK Proofs Generated</div>
+                    <div class="stat-icon">🔐</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="best-lap">--:--</div>
+                    <div class="stat-label">Best Lap Time</div>
+                    <div class="stat-icon">⚡</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="races-completed">0</div>
+                    <div class="stat-label">Races Completed</div>
+                    <div class="stat-icon">🏁</div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>Achievements & NFT Rewards</h3>
+                <div class="achievements-grid" id="achievements-grid">
+                    <!-- Achievements loaded by JS -->
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>Race History</h3>
+                <div class="history-table">
+                    <div class="history-header">
+                        <span>Track</span>
+                        <span>Position</span>
+                        <span>Time</span>
+                        <span class="zk-proof-header">ZK Proof</span>
+                    </div>
+                    <div id="race-history-content">
+                        <!-- History loaded by JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals and other elements would go here -->
+
+    <script src="js/profile.js"></script>
+    <script src="js/audio.js"></script>
+</body>
+</html>
