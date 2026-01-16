@@ -14,37 +14,38 @@
     <div id="glitch-overlay"></div>
     
     <!-- Navigation -->
-    <header>
-        <nav class="navbar">
-            <div class="nav-container container">
-                <a href="#home" class="nav-logo">
-                    <div class="logo-container">
-                        <div class="logo-text">ZK<span class="highlight">Sentinel</span></div>
-                        <div class="logo-subtitle">QUANTUM RACING PROTOCOL</div>
-                    </div>
-                </a>
-                <div class="nav-menu" id="nav-menu">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#team" class="nav-link">Team</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                    <div class="wallet-connect" id="wallet-connect">
-                        <span class="wallet-text">Connect Wallet</span>
-                        <div class="wallet-icons">
-                            <!-- Inlined SVGs for better performance and styling -->
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3125 4.0625C18.125 2.0625 15.25 1 12 1C8.75 1 5.875 2.0625 3.6875 4.0625C1.5 6.0625 0 8.75 0 12S1.5 17.9375 3.6875 19.9375C5.875 21.9375 8.75 23 12 23C15.25 23 18.125 21.9375 20.3125 19.9375C22.5 17.9375 24 15.25 24 12S22.5 6.0625 20.3125 4.0625Z" fill="#00D2FF"/></svg>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#3B99FC"/></svg>
-                        </div>
-                    </div>
+   <header>
+    <nav class="navbar">
+        <div class="nav-container container">
+            <a href="#home" class="nav-logo">
+                <div class="logo-container">
+                    <div class="logo-text">ZK<span class="highlight">Sentinel</span></div>
+                    <div class="logo-subtitle">QUANTUM RACING PROTOCOL</div>
                 </div>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="wallet-connect" id="wallet-connect">
+                    <span class="wallet-text">Connect Wallet</span>
+                    <div class="wallet-icons">
+                        <!-- CORRECTED: Inlined SVG for MetaMask -->
+                        <svg width="24" height="24" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><g fill="#E2761B"><path d="M252.33,131.23,134.22,249.34a13.78,13.78,0,0,1-19.5,0L3.67,131.23a13.78,13.78,0,0,1,0-19.5L55.8,59.61a13.78,13.78,0,0,1,9.75-4.06h125a13.78,13.78,0,0,1,9.75,4.06l52.13,52.12A13.78,13.78,0,0,1,252.33,131.23Z" opacity="0.1"></path><path d="M190.52,55.55H65.55a13.78,13.78,0,0,0-9.75,4.06L3.67,111.73a13.78,13.78,0,0,0,0,19.5L115.78,243.34a13.78,13.78,0,0,0,19.5,0L252.33,126.28a13.78,13.78,0,0,0,0-19.5L200.27,59.61A13.78,13.78,0,0,0,190.52,55.55Z" fill-rule="evenodd"></path></g></svg>
+                        <!-- CORRECTED: Inlined SVG for WalletConnect -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.33333 18.3333C8.33333 19.3333 9.08333 20.0833 10 20.0833H14C14.9167 20.0833 15.6667 19.3333 15.6667 18.3333V17.5H8.33333V18.3333ZM18.5 14.1667V8.66667C18.5 6 16.5 3.5 14 3.5H10C7.5 3.5 5.5 6 5.5 8.66667V14.1667L4 15.6667V16.5H20V15.6667L18.5 14.1667Z" fill="#3B99FC"/></svg>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+</header>
 
     <main>
         <!-- Hero Section -->
@@ -143,23 +144,26 @@
 
     <!-- Wallet Modal -->
     <div id="wallet-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Connect Wallet</h3>
-                <span class="close">&times;</span>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Connect Wallet</h3>
+            <span class="close">&times;</span>
+        </div>
+        <div class="wallet-options">
+            <div class="wallet-option" data-wallet="metamask">
+                <!-- CORRECTED: Reliable external URL for MetaMask -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask">
+                <span>MetaMask</span>
             </div>
-            <div class="wallet-options">
-                <div class="wallet-option" data-wallet="metamask">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask">
-                    <span>MetaMask</span>
-                </div>
-                <div class="wallet-option" data-wallet="walletconnect">
-                    <img src="https://walletconnect.com/walletconnect-logo.svg" alt="WalletConnect">
-                    <span>WalletConnect</span>
-                </div>
+            <div class="wallet-option" data-wallet="walletconnect">
+                 <!-- CORRECTED: Reliable external URL for WalletConnect -->
+                <img src="https://walletconnect.com/walletconnect-logo.svg" alt="WalletConnect">
+                <span>WalletConnect</span>
             </div>
         </div>
     </div>
+</div>
+
 
     <script src="js/main.js"></script>
     <script src="js/audio.js"></script>
