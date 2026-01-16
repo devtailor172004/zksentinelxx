@@ -1,5 +1,3 @@
-// js/main.js
-
 class ZKSentinelApp {
     constructor() {
         this.navMenu = document.getElementById('nav-menu');
@@ -16,37 +14,25 @@ class ZKSentinelApp {
     }
 
     setupEventListeners() {
-        // Hamburger Menu for mobile
         this.hamburger?.addEventListener('click', () => {
             this.navMenu.classList.toggle('active');
             this.hamburger.classList.toggle('active');
         });
 
-        // Navigation buttons
         this.launchBtn?.addEventListener('click', () => {
-            // Add a fade-out effect before navigating
-            document.body.style.transition = 'opacity 0.5s ease-out';
-            document.body.style.opacity = 0;
-            setTimeout(() => {
-                window.location.href = 'loading.html';
-            }, 500);
+            this.navigateTo('loading.html');
         });
 
         this.profileBtn?.addEventListener('click', () => {
-            document.body.style.transition = 'opacity 0.5s ease-out';
-            document.body.style.opacity = 0;
-            setTimeout(() => {
-                window.location.href = 'profile.html';
-            }, 500);
+            this.navigateTo('profile.html');
         });
 
-        // Wallet Modal listeners
         this.walletConnectBtn?.addEventListener('click', () => {
-            this.walletModal.style.display = 'block';
+            if (this.walletModal) this.walletModal.style.display = 'flex';
         });
 
         this.closeModalBtn?.addEventListener('click', () => {
-            this.walletModal.style.display = 'none';
+            if (this.walletModal) this.walletModal.style.display = 'none';
         });
 
         window.addEventListener('click', (event) => {
@@ -54,6 +40,14 @@ class ZKSentinelApp {
                 this.walletModal.style.display = 'none';
             }
         });
+    }
+
+    navigateTo(url) {
+        document.body.style.transition = 'opacity 0.5s ease-out';
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+            window.location.href = url;
+        }, 500);
     }
     
     animateStatsOnScroll() {
@@ -74,6 +68,7 @@ class ZKSentinelApp {
     }
 
     animateValue(element, start, end, duration) {
+        if (!element) return;
         let startTimestamp = null;
         const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
@@ -88,5 +83,6 @@ class ZKSentinelApp {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.opacity = 1;
     new ZKSentinelApp();
 });
