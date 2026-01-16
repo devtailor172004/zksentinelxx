@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZKSentinel - Quantum Racing Protocol</title>
+    <!-- Link the new base stylesheet FIRST -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="matrix-bg"></div>
+    <div id="glitch-overlay"></div>
+    
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container container">
+                <a href="#home" class="nav-logo">
+                    <div class="logo-container">
+                        <div class="logo-text">ZK<span class="highlight">Sentinel</span></div>
+                        <div class="logo-subtitle">QUANTUM RACING PROTOCOL</div>
+                    </div>
+                </a>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#team" class="nav-link">Team</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <div class="wallet-connect" id="wallet-connect">
+                        <span class="wallet-text">Connect Wallet</span>
+                        <div class="wallet-icons">
+                            <!-- Inlined SVGs for better performance and styling -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3125 4.0625C18.125 2.0625 15.25 1 12 1C8.75 1 5.875 2.0625 3.6875 4.0625C1.5 6.0625 0 8.75 0 12S1.5 17.9375 3.6875 19.9375C5.875 21.9375 8.75 23 12 23C15.25 23 18.125 21.9375 20.3125 19.9375C22.5 17.9375 24 15.25 24 12S22.5 6.0625 20.3125 4.0625Z" fill="#00D2FF"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#3B99FC"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <h1 class="hero-title glitch" data-text="RACE THE FUTURE">RACE THE FUTURE</h1>
+                    <p class="hero-subtitle">Enter the Quantum Racing Realm</p>
+                    <p class="hero-description">Experience next-generation blockchain racing with zero-knowledge proofs, cyberpunk aesthetics, and quantum mechanics.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" id="launch-game">LAUNCH GAME</button>
+                        <button class="btn-secondary" id="view-profile">VIEW PROFILE</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="1337">0</div>
+                            <div class="stat-label">Active Racers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="42069">0</div>
+                            <div class="stat-label">ZK Proofs Generated</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="999">0</div>
+                            <div class="stat-label">Quantum Races</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="btn red"></span><span class="btn yellow"></span><span class="btn green"></span>
+                        </div>
+                        <div class="terminal-title">ZKSentinel.exe</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line"><span class="prompt">root@zksentinel:~$</span> <span class="command typing-animation">./initialize_quantum_protocol.sh</span></div>
+                        <div class="terminal-line"><span class="success">[SUCCESS]</span> Zero-Knowledge Racing Protocol Loaded.</div>
+                        <div class="terminal-line"><span class="info">[INFO]</span> Blockchain Integration: Polygon (Mumbai) ACTIVE.</div>
+                        <div class="terminal-line"><span class="warning">[QUANTUM]</span> Reality.exe has been suspended.</div>
+                        <div class="terminal-line"><span class="prompt">root@zksentinel:~$</span> <span class="command">Awaiting user input...</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Overview -->
+        <section class="system-overview">
+            <div class="container">
+                <h2 class="section-title glitch" data-text="SYSTEM OVERVIEW">SYSTEM OVERVIEW</h2>
+                <div class="system-grid">
+                    <div class="system-card">
+                        <div class="card-icon">🏎️</div>
+                        <h3>Quantum Racing</h3>
+                        <p>High-speed, anti-gravity racing where your results are cryptographically verified on the blockchain.</p>
+                    </div>
+                    <div class="system-card">
+                        <div class="card-icon">🛡️</div>
+                        <h3>ZK Security</h3>
+                        <p>Leveraging zero-knowledge proofs to ensure fair play and privacy without revealing your strategy.</p>
+                    </div>
+                    <div class="system-card">
+                        <div class="card-icon">💎</div>
+                        <h3>NFT Rewards</h3>
+                        <p>Win races to earn unique, ownable NFT cars, cosmetic upgrades, and prestigious trophies.</p>
+                    </div>
+                    <div class="system-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Live Analytics</h3>
+                        <p>Track your performance, view global leaderboards, and analyze race data in real-time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections will be added here -->
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-text">ZK<span class="highlight">Sentinel</span></div>
+                    <p>&copy; 2025 ZKSentinel. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#team">Team</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Wallet Modal -->
+    <div id="wallet-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Connect Wallet</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="wallet-options">
+                <div class="wallet-option" data-wallet="metamask">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask">
+                    <span>MetaMask</span>
+                </div>
+                <div class="wallet-option" data-wallet="walletconnect">
+                    <img src="https://walletconnect.com/walletconnect-logo.svg" alt="WalletConnect">
+                    <span>WalletConnect</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/audio.js"></script>
+</body>
+</html>
